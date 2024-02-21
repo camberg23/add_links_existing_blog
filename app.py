@@ -24,9 +24,10 @@ Next, here are some sources from our database that are most semantically similar
 
 Given the target blog and the similar content, return the updated target blog that includes naturally- and appropriately-placed hyperlinks to as many of these sources as makes sense given the current content of the target blog.
 It is acceptable to add sentences or slightly change phrases to make the hyperlinking more natural, but the overarching goal is to preserve the structure of the original content as much as possible while adding in hyperlinks. 
-Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is acceptable if this is not possible for certain links. It is also acceptable to discard certain links/sources if it seems like a clear stretch to try to include them.
+Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to discard certain links/sources if it seems like a clear stretch to try to include them.
+However, you MUST include at least 6-8 hyperlinks! Never do fewer than this.
 
-Do NOT simply add all of the links at the end of the blog. They should be seamlessly and naturally interspersed within the blog.
+Do NOT simply add all of the links at the end of the blog. They should be seamlessly and naturally interspersed within the blog. 
 
 You do NOT have to invoke the name of the linked blog, simply adding the link in key places should be sufficient.
 
