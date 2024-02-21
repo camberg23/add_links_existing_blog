@@ -1,0 +1,7 @@
+openai
+langchain
+streamlit
+langchain-community
+scikit-learn
+numpy
+pandas
