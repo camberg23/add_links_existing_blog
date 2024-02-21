@@ -25,7 +25,9 @@ Next, here are some sources from our database that are most semantically similar
 Given the target blog and the similar content, return the updated target blog that includes naturally- and appropriately-placed hyperlinks to as many of these sources as makes sense given the current content of the target blog.
 It is acceptable to add sentences or slightly change phrases to make the hyperlinking more natural, but the overarching goal is to preserve the structure of the original content as much as possible while adding in hyperlinks. 
 Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to discard certain links/sources if it seems like a clear stretch to try to include them.
-However, you MUST include at least 6-8 hyperlinks! Never do fewer than this.
+However, you MUST include at least 6 hyperlinks! Never do fewer than this.
+
+You should NOT add in whole new sections or paragraphs, though interspersing a new sentence or phrase into the existing flow is totally fine.
 
 NEVER add hyperlinks to any proper nouns or capitalized words (except for Truity-related proper nouns)!
 
