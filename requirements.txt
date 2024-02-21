@@ -1,7 +1,7 @@
 openai
-langchain
 streamlit
-langchain-community
+langchain==0.1.7
+langchain-community==0.0.20
 scikit-learn
 numpy
 pandas
