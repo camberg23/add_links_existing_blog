@@ -82,7 +82,7 @@ content_preview_length = 500
 
 user_blog_content = st.text_area("Paste your blog content here:", height=300)
 
-if submit:
+if st.submit('Intersperse links to related Truity blogs'):
     with st.spinner("Interspersing related blog post links into your text..."):
         # Find top n similar texts
         top_n_content_list = find_top_n_similar_texts(user_blog_content, blog_df, n, content_preview_length)
