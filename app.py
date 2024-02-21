@@ -27,6 +27,8 @@ It is acceptable to add sentences or slightly change phrases to make the hyperli
 Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to discard certain links/sources if it seems like a clear stretch to try to include them.
 However, you MUST include at least 6-8 hyperlinks! Never do fewer than this.
 
+Be sure not to add unexpected or erroneous-looking hyperlinks (e.g., don't link to an article over proper nouns like 'Psychology Today', as the reader would expect this to link to that actual source). 
+
 Do NOT simply add all of the links at the end of the blog. They should be seamlessly and naturally interspersed within the blog. 
 
 You do NOT have to invoke the name of the linked blog, simply adding the link in key places should be sufficient.
