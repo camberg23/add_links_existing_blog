@@ -5,3 +5,4 @@ langchain-community==0.0.20
 scikit-learn
 numpy
 pandas
+diff_match_patch
