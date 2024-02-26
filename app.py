@@ -38,10 +38,11 @@ You do NOT have to invoke the name of the linked blog, simply adding the link in
 
 Formatting requirements: 
 1. ONLY output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
-2. Output the text as HTML, not markdown or plaintext. Appropriately catch title, headers, bullets, etc. and make sure to use the correct HTML syntax.
+2. Output the text as HTML, not markdown or plaintext. Appropriately catch title, headers, bullets, etc. and make sure to use the correct HTML syntax. Do not wrap the outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]"). 
 
 YOUR OUTPUTS:
 """
+
 def highlight_diffs(original_text, modified_text):
     dmp = dmp_module.diff_match_patch()
     diffs = dmp.diff_main(original_text, modified_text)
