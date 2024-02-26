@@ -9,6 +9,7 @@ import streamlit as st
 from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate 
 from langchain.chains import LLMChain
+import diff_match_patch as dmp_module
 
 # Initialize OpenAI client with your API key
 client = OpenAI(api_key=st.secrets['API_KEY'])
@@ -39,7 +40,13 @@ Formatting requirements: ONLY output the enhanced target blog (kept exactly the 
 
 YOUR OUTPUTS:
 """
-
+def highlight_diffs(original_text, modified_text):
+    dmp = dmp_module.diff_match_patch()
+    diffs = dmp.diff_main(original_text, modified_text)
+    dmp.diff_cleanupSemantic(diffs)
+    html_diff = dmp.diff_prettyHtml(diffs)
+    return html_diff
+    
 def get_embedding(text, model="text-embedding-3-small"):
     response = client.embeddings.create(
         model=model,
@@ -98,6 +105,11 @@ if submit:
         chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_specific_hyperlinks), llm=chat_model)
         generated_output = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
 
+    diff_html = highlight_diffs(user_blog_content, generated_output)
+    st.components.v1.html(diff_html, height=400, scrolling=True)
+
+    st.download_button(label="Download HTML", data=generated_output, file_name="generated_blog.html", mime="text/html")
+    
     # Display the generated content
-    st.markdown("## Blog post with relevant hyperlinks interspersed")
-    st.markdown(generated_output)
+    # st.markdown("## Blog post with relevant hyperlinks interspersed")
+    # st.markdown(generated_output)
