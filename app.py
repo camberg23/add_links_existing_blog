@@ -36,7 +36,9 @@ Do NOT simply add all of the links at the end of the blog. They should be seamle
 
 You do NOT have to invoke the name of the linked blog, simply adding the link in key places should be sufficient.
 
-Formatting requirements: ONLY output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
+Formatting requirements: 
+1. ONLY output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
+2. Output the text as HTML, not markdown or plaintext. Appropriately catch title, headers, bullets, etc. and make sure to use the correct HTML syntax.
 
 YOUR OUTPUTS:
 """
@@ -106,10 +108,13 @@ if submit:
         generated_output = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
 
     diff_html = highlight_diffs(user_blog_content, generated_output)
-    st.components.v1.html(diff_html, height=400, scrolling=True)
+    with st.expander("See specific changes"):
+        st.components.v1.html(diff_html, height=400, scrolling=True)
 
     st.download_button(label="Download HTML", data=generated_output, file_name="generated_blog.html", mime="text/html")
     
     # Display the generated content
-    # st.markdown("## Blog post with relevant hyperlinks interspersed")
-    # st.markdown(generated_output)
+    st.markdown("## Blog post with relevant hyperlinks interspersed")
+    st.markdown(generated_output)
+    st.write('test')
+    st.components.v1.html(generated_output)
