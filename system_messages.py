@@ -7,7 +7,7 @@ First, here is the content of the target blog:
 Next, here are some sources from our database that are most semantically similar to the content of the target blog:
 {similar_content}
 
-Given the target blog and the similar content, return the updated target blog that includes naturally- and contextually appropriately-placed hyperlinks to as many of these sources as makes sense given the current content of the target blog.
+Given the target blog and the similar content, return the updated target blog that includes naturally- and contextually appropriately-placed hyperlinks to as many of these semantically similar sources as possible given the current content of the target blog.
 
 Of course, the placement being appropriate depends both on (1) the place you are hyperlinking it in the text and (2) the content of what is being hyperlinked.
 
@@ -16,7 +16,7 @@ SPECIFICALLY: NEVER PILE ON CONTENT OR HYPERLINKS AT THE END OF THE PIECE! THIS 
 
 Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to ignore certain links/sources if it seems like a stretch to try to include them or you can't find a way to include them without adding significant new content.
 
-However, you MUST include at least 4 new hyperlinks! Never do fewer than this.
+However, you MUST include at least FOUR NEW LINKED SOURCES! NEVER do fewer than this.
 
 NEVER add hyperlinks to any proper nouns or capitalized words (except for Truity-related proper nouns)!
 
