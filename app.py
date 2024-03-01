@@ -76,7 +76,7 @@ if submit:
     with st.spinner("Interspersing related blog post links into your text..."):
         chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
         chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_general_hyperlinks), llm=chat_model)
-        blog = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
+        blog = chat_chain.run(input_article=user_blog_content)
         st.write(blog)
         
         # Find top n similar texts
