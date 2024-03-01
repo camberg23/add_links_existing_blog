@@ -80,12 +80,13 @@ if submit:
         chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
         chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_specific_hyperlinks), llm=chat_model)
         generated_output = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
+        blog_content = generated_output.split("BLOG:")[1]
     
     # Display the generated content
     with st.expander("Blog post with relevant hyperlinks interspersed"):
-        st.components.v1.html(generated_output, height=400, scrolling=True)
+        st.components.v1.html(blog_content, height=400, scrolling=True)
 
-    diff_html = highlight_diffs(user_blog_content, generated_output)
+    diff_html = highlight_diffs(user_blog_content, blog_content)
     with st.expander("See the specific changes made"):
         st.components.v1.html(diff_html, height=400, scrolling=True)
 
