@@ -36,7 +36,8 @@ YOUR OUTPUTS:
 """
 
 add_general_hyperlinks = """
-Your job is to go through the text of an article and simply add hyperlinks into the text whenever you see the relevant keyphase according to the following specifications:
+Your job is to go through the HTML text of an article and simply add hyperlinks into the text whenever you see the relevant keyphase according to the following specifications. 
+Note that 'first instance path' means the first time you see that phrase, and 'second instance path' refers to all subsequent times you see that phrase.
 
 - **Keyphrase:** 16 personalities
   - **Notes:** None
@@ -179,7 +180,11 @@ Your job is to go through the text of an article and simply add hyperlinks into 
   - **Second Instance Path:** truity.com/blog/page/seven-love-styles
   
 Formatting requirements:
-Return the EXACT content of the input article; the ONLY change should be hyperlinking any keyphrases you see in the text according to the above specifications.
+Return the EXACT content of the input article in HTML; the ONLY change should be hyperlinking any keyphrases you see in the text according to the above specifications. 
+No prefaces or conclusions—just output the exact text.
+
+Do NOT wrap these outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]").
+
 If none of the keyphrases appear, simply return the EXACT content of the input article.
 
 Note that the text does not have to be EXACTLY the keyphrase, but should be relevantly similar in order to update it according to the above specifications.
