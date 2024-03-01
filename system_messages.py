@@ -12,7 +12,7 @@ Given the target blog and the similar content, return the updated target blog th
 Of course, the placement being appropriate depends both on (1) the place you are hyperlinking it in the text and (2) the content of what is being hyperlinked.
 
 It is acceptable to add sentences or slightly change phrases to make the hyperlinking more natural, but you should NEVER ADD PARAGRAPHS/MULTIPLE NEW LINES in under any circumstances.
-SPECIFICALLY: NEVER PILE ON CONTENT OR HYPERLINKS AT THE END OF THE PIECE! THIS IS A LAZY WAY OF DOING IT AND INCORRECT.
+SPECIFICALLY: NEVER PILE ON CONTENT OR HYPERLINKS AT THE END OF THE PIECE! THIS IS A LAZY WAY OF DOING IT AND INCORRECT. You should never add any content to the end of the piece.
 
 Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to ignore certain links/sources if it seems like a stretch to try to include them or you can't find a way to include them without adding significant new content.
 
