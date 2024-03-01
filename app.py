@@ -10,6 +10,7 @@ from langchain_community.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate 
 from langchain.chains import LLMChain
 import diff_match_patch as dmp_module
+import re
 
 from system_messages import *
 
@@ -60,7 +61,31 @@ def find_top_n_similar_texts(input_text, df, n=5, content_preview_length=100):
     
     return output_list
 
+# The function to add hyperlinks to the HTML content
+def add_hyperlinks(html_content):
+    for keyphrase, paths in keyphrase_links.items():
+        # Escaping characters for regex search
+        escaped_keyphrase = re.escape(keyphrase)
+        # Pattern to find the keyphrase that is not already part of a hyperlink
+        pattern = re.compile(r'(?<!href=")(?<!>)\b' + escaped_keyphrase + r'\b(?!<\/a>)', re.IGNORECASE)
+        
+        # Function to replace occurrences with hyperlinks, limited to the first two occurrences
+        def repl_func(match, paths=paths, count=[0]): # Using a list for count to have a mutable integer
+            if count[0] < 2: # Only replace the first two occurrences
+                hyperlink = f'<a href="{paths[count[0]]}">{match.group(0)}</a>'
+                count[0] += 1
+                return hyperlink
+            else:
+                return match.group(0) # Return the original match if not replacing
+        
+        # Perform the search and replace
+        html_content = pattern.sub(repl_func, html_content)
+    
+    return html_content
 
+
+
+# streamlit code
 st.title('Add in relevant hyperlinks to already written blog')
 
 blog_df = pd.read_pickle('blog_df.pkl')
@@ -74,14 +99,12 @@ submit = st.button('Intersperse links to related Truity blogs')
 
 if submit:
     with st.spinner("Interspersing related blog post links into your text..."):
-        chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
-        chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_general_hyperlinks), llm=chat_model)
-        blog = chat_chain.run(input_article=user_blog_content)
-        st.write(blog)
+        blog = add_hyperlinks(user_blog_content)
         
         # Find top n similar texts
         top_n_content_list = find_top_n_similar_texts(blog, blog_df, n, content_preview_length)
-
+        
+        chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
         chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_specific_hyperlinks), llm=chat_model)
         generated_output = chat_chain.run(target_blog=blog, similar_content=top_n_content_list)
         blog_content = generated_output.split("BLOG:")[1]
