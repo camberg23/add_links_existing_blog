@@ -35,6 +35,39 @@ Formatting requirements:
 YOUR OUTPUTS:
 """
 
+import re
+
+# Define the dictionary for keyphrases and their paths, including inferred links for MBTI and Enneagram types
+keyphrase_links = {
+    "16 personalities": ["https://truity.com/blog/page/16-personality-types-myers-briggs", "https://truity.com/test/type-finder-personality-test-new"],
+    "16 personalities test": ["https://truity.com/test/type-finder-personality-test-new", "https://truity.com/blog/myers-briggs/mbti-alternative-personality-tests"],
+    "aptitude test": ["https://truity.com/test/career-personality-profiler-test", "https://truity.com/blog/page/what-career-test"],
+    "big five": ["https://truity.com/test/big-five-personality-test", "https://truity.com/blog/page/big-five-personality-traits"],
+    "big five personality test": ["https://truity.com/test/big-five-personality-test", "https://truity.com/blog/page/big-five-personality-traits"],
+    "big five test": ["https://truity.com/test/big-five-personality-test", "https://truity.com/blog/page/big-five-personality-traits"],
+    "career aptitude test": ["https://truity.com/test/career-personality-profiler-test", "https://truity.com/blog/page/what-career-test"],
+    "career quiz": ["https://truity.com/test/career-personality-profiler-test", "https://truity.com/blog/page/what-career-test"],
+    # Handling for "career test" will be dynamic based on article content about Myers Briggs or TypeFinder
+    "disc": ["https://truity.com/test/disc-personality-test", "https://truity.com/blog/page/about-disc-personality-assessment"],
+    "disc assessment": ["https://truity.com/test/disc-personality-test", "https://truity.com/blog/page/about-disc-personality-assessment"],
+    "disc personality test": ["https://truity.com/test/disc-personality-test", "https://truity.com/blog/page/about-disc-personality-assessment"],
+    "emotional intelligence": ["https://truity.com/blog/page/what-emotional-intelligence", "https://truity.com/test/emotional-intelligence-test"],
+    "enneagram": ["https://truity.com/blog/enneagram/what-is-enneagram", "https://truity.com/blog/enneagram/9-types-enneagram"],
+    "enneagram test": ["https://truity.com/test/enneagram-personality-test", "https://truity.com/blog/enneagram/what-is-enneagram"],
+    "enneagram types": ["https://truity.com/blog/enneagram/9-types-enneagram", "https://truity.com/test/enneagram-personality-test"],
+    "eq test": ["https://truity.com/test/emotional-intelligence-test", "https://truity.com/blog/page/what-emotional-intelligence"],
+    # Dynamic handling for any four-letter MBTI type
+    "mbti": ["https://truity.com/blog/myers-briggs/about-myers-briggs-personality-typing", "https://truity.com/blog/page/16-personality-types-myers-briggs"],
+    "mbti test": ["https://truity.com/blog/myers-briggs/about-myers-briggs-personality-typing", "https://truity.com/blog/myers-briggs/mbti-alternative-personality-tests"],
+    "myers briggs": ["https://truity.com/blog/myers-briggs/about-myers-briggs-personality-typing", "https://truity.com/blog/page/16-personality-types-myers-briggs"],
+    "myers briggs personality test": ["https://truity.com/blog/myers-briggs/about-myers-briggs-personality-typing", "https://truity.com/blog/myers-briggs/mbti-alternative-personality-tests"],
+    "myers briggs test": ["https://truity.com/blog/myers-briggs/about-myers-briggs-personality-typing", "https://truity.com/blog/myers-briggs/mbti-alternative-personality-tests"],
+    # Dynamic handling for "personality test" based on article content
+    "personality type": ["https://truity.com/test/type-finder-personality-test-new", "https://truity.com/blog/page/16-personality-types-myers-briggs"],
+    # Enneagram types and MBTI types are dynamically generated
+    "love styles": ["https://truity.com/test/love-styles-test", "https://truity.com/blog/page/seven-love-styles"],
+}
+
 add_general_hyperlinks = """
 Your job is to go through the HTML text of an article and simply add hyperlinks into the text whenever you see the relevant keyphase according to the following specifications. 
 Note that 'first instance path' means the first time you see that phrase, and 'second instance path' refers to all subsequent times you see that phrase.
