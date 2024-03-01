@@ -74,12 +74,16 @@ submit = st.button('Intersperse links to related Truity blogs')
 
 if submit:
     with st.spinner("Interspersing related blog post links into your text..."):
-        # Find top n similar texts
-        top_n_content_list = find_top_n_similar_texts(user_blog_content, blog_df, n, content_preview_length)
-
         chat_model = ChatOpenAI(openai_api_key=st.secrets['API_KEY'], model_name='gpt-4-1106-preview', temperature=0.2)
+        chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_general_hyperlinks), llm=chat_model)
+        blog = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
+        st.write(blog)
+        
+        # Find top n similar texts
+        top_n_content_list = find_top_n_similar_texts(blog, blog_df, n, content_preview_length)
+
         chat_chain = LLMChain(prompt=PromptTemplate.from_template(add_specific_hyperlinks), llm=chat_model)
-        generated_output = chat_chain.run(target_blog=user_blog_content, similar_content=top_n_content_list)
+        generated_output = chat_chain.run(target_blog=blog, similar_content=top_n_content_list)
         blog_content = generated_output.split("BLOG:")[1]
     
     # Display the generated content
