@@ -36,5 +36,156 @@ YOUR OUTPUTS:
 """
 
 add_general_hyperlinks = """
-Here.
+Your job is to go through the text of an article and simply add hyperlinks into the text whenever you see the relevant keyphase according to the following specifications:
+
+- **Keyphrase:** 16 personalities
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/page/16-personality-types-myers-briggs
+  - **Second Instance Path:** truity.com/test/type-finder-personality-test-new
+
+- **Keyphrase:** 16 personalities test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/type-finder-personality-test-new
+  - **Second Instance Path:** truity.com/blog/myers-briggs/mbti-alternative-personality-tests
+
+- **Keyphrase:** aptitude test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/career-personality-profiler-test
+  - **Second Instance Path:** truity.com/blog/page/what-career-test
+
+- **Keyphrase:** big five
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/big-five-personality-test
+  - **Second Instance Path:** truity.com/blog/page/big-five-personality-traits
+
+- **Keyphrase:** big five personality test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/big-five-personality-test
+  - **Second Instance Path:** truity.com/blog/page/big-five-personality-traits
+
+- **Keyphrase:** big five test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/big-five-personality-test
+  - **Second Instance Path:** truity.com/blog/page/big-five-personality-traits
+
+- **Keyphrase:** career aptitude test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/career-personality-profiler-test
+  - **Second Instance Path:** truity.com/blog/page/what-career-test
+
+- **Keyphrase:** career quiz
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/career-personality-profiler-test
+  - **Second Instance Path:** truity.com/blog/page/what-career-test
+
+- **Keyphrase:** career test (if article is about Myers Briggs or TypeFinder)
+  - **Notes:** Use if article is about Myers Briggs or TypeFinder.
+  - **First Instance Path:** truity.com/test/type-finder-careers
+  - **Second Instance Path:** truity.com/blog/page/what-career-test
+
+- **Keyphrase:** career test (if article is not about Myers Briggs or TypeFinder)
+  - **Notes:** Use if article is not about Myers Briggs or TypeFinder.
+  - **First Instance Path:** truity.com/test/career-personality-profiler-test
+  - **Second Instance Path:** truity.com/blog/page/what-career-test
+
+- **Keyphrase:** disc
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/disc-personality-test
+  - **Second Instance Path:** truity.com/blog/page/about-disc-personality-assessment
+
+- **Keyphrase:** disc assessment
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/disc-personality-test
+  - **Second Instance Path:** truity.com/blog/page/about-disc-personality-assessment
+
+- **Keyphrase:** disc personality test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/disc-personality-test
+  - **Second Instance Path:** truity.com/blog/page/about-disc-personality-assessment
+
+- **Keyphrase:** emotional intelligence
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/page/what-emotional-intelligence
+  - **Second Instance Path:** truity.com/test/emotional-intelligence-test
+
+- **Keyphrase:** enneagram
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/enneagram/what-is-enneagram
+  - **Second Instance Path:** truity.com/blog/enneagram/9-types-enneagram
+
+- **Keyphrase:** enneagram test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/enneagram-personality-test
+  - **Second Instance Path:** truity.com/blog/enneagram/what-is-enneagram
+
+- **Keyphrase:** enneagram types
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/enneagram/9-types-enneagram
+  - **Second Instance Path:** truity.com/test/enneagram-personality-test
+
+- **Keyphrase:** eq test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/emotional-intelligence-test
+  - **Second Instance Path:** truity.com/blog/page/what-emotional-intelligence
+
+- **Keyphrase:** INFJ/any four-letter MBTI type
+  - **Notes:** USE THIS SAME FORMAT ANY TIME YOU SEE ANTI FOUR-LETTER MBTI TYPE!
+  - **First Instance Path:** truity.com/blog/personality-type/infj
+  - **Second Instance Path:** truity.com/blog/personality-type/infj/strengths#type-details
+
+- **Keyphrase:** mbti
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/myers-briggs/about-myers-briggs-personality-typing
+  - **Second Instance Path:** truity.com/blog/page/16-personality-types-myers-briggs
+
+- **Keyphrase:** mbti test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/myers-briggs/about-myers-briggs-personality-typing
+  - **Second Instance Path:** truity.com/blog/myers-briggs/mbti-alternative-personality-tests
+
+- **Keyphrase:** myers briggs
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/myers-briggs/about-myers-briggs-personality-typing
+  - **Second Instance Path:** truity.com/blog/page/16-personality-types-myers-briggs
+
+- **Keyphrase:** myers briggs personality test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/myers-briggs/about-myers-briggs-personality-typing
+  - **Second Instance Path:** truity.com/blog/myers-briggs/mbti-alternative-personality-tests
+
+- **Keyphrase:** myers briggs test
+  - **Notes:** None
+  - **First Instance Path:** truity.com/blog/myers-briggs/about-myers-briggs-personality-typing
+  - **Second Instance Path:** truity.com/blog/myers-briggs/mbti-alternative-personality-tests
+
+- **Keyphrase:** personality test (use if article is not about Enneagram or Big Five)
+  - **Notes:** Use if the article is not about Enneagram or Big Five.
+  - **First Instance Path:** truity.com/test/type-finder-personality-test-new
+  - **Second Instance Path:** truity.com/blog/myers-briggs/mbti-alternative-personality-tests
+
+- **Keyphrase:** personality type
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/type-finder-personality-test-new
+  - **Second Instance Path:** truity.com/blog/page/16-personality-types-myers-briggs
+
+- **Keyphrase:** Type 1 (use same format for any enneagram type)
+  - **Notes:** USE THE SAME FORMAT FOR ANY OF THE NINE ENNEAGRAM TYPES!
+  - **First Instance Path:** truity.com/blog/enneagram-type/type-one
+  - **Second Instance Path:** truity.com/blog/enneagram/9-types-enneagram
+
+- **Keyphrase:** love styles
+  - **Notes:** None
+  - **First Instance Path:** truity.com/test/love-styles-test
+  - **Second Instance Path:** truity.com/blog/page/seven-love-styles
+  
+Formatting requirements:
+Return the EXACT content of the input article; the ONLY change should be hyperlinking any keyphrases you see in the text according to the above specifications.
+If none of the keyphrases appear, simply return the EXACT content of the input article.
+
+Note that the text does not have to be EXACTLY the keyphrase, but should be relevantly similar in order to update it according to the above specifications.
+
+INPUT ARTICLE:
+{input_article}
+
+YOUR OUTPUTS:
 """
