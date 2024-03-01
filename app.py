@@ -11,37 +11,10 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 import diff_match_patch as dmp_module
 
+from system_messages import *
+
 # Initialize OpenAI client with your API key
 client = OpenAI(api_key=st.secrets['API_KEY'])
-
-add_specific_hyperlinks = """
-Your job is to go through the text of a target blog and add in minimal new text/hyperlinks to sources in our blog database that are most similar to the content of the blog in embeddings space.
-
-First, here is the content of the target blog:
-{target_blog}
-
-Next, here are some sources from our database that are most semantically similar to the content of the target blog:
-{similar_content}
-
-Given the target blog and the similar content, return the updated target blog that includes naturally- and appropriately-placed hyperlinks to as many of these sources as makes sense given the current content of the target blog.
-It is acceptable to add sentences or slightly change phrases to make the hyperlinking more natural, but the overarching goal is to preserve the structure of the original content as much as possible while adding in hyperlinks. 
-Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to discard certain links/sources if it seems like a clear stretch to try to include them.
-However, you MUST include at least 6 hyperlinks! Never do fewer than this.
-
-You should NOT add in whole new sections or paragraphs, though interspersing a new sentence or phrase into the existing flow is totally fine.
-
-NEVER add hyperlinks to any proper nouns or capitalized words (except for Truity-related proper nouns)!
-
-Do NOT simply add all of the links at the end of the blog. They should be seamlessly and naturally interspersed within the blog. 
-
-You do NOT have to invoke the name of the linked blog, simply adding the link in key places should be sufficient.
-
-Formatting requirements: 
-1. ONLY output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
-2. Output the text as HTML, not markdown or plaintext. Appropriately catch title, headers, bullets, etc. and make sure to use the correct HTML syntax. Do not wrap the outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]"). 
-
-YOUR OUTPUTS:
-"""
 
 def highlight_diffs(original_text, modified_text):
     dmp = dmp_module.diff_match_patch()
@@ -92,10 +65,10 @@ st.title('Add in relevant hyperlinks to already written blog')
 
 blog_df = pd.read_pickle('blog_df.pkl')
 
-n = 10
+n = 7
 content_preview_length = 500
 
-user_blog_content = st.text_area("Paste your blog content here:", height=300)
+user_blog_content = st.text_area("Paste your blog content here:", height=500)
 
 submit = st.button('Intersperse links to related Truity blogs')
 
