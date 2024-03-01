@@ -27,8 +27,9 @@ DO NOT invoke the name of the linked blog, simply add the associated link in key
 CRITICAL: THE INPUT BLOG WILL HAVE EXISTING HTML STRUCTURE. DO NOT MODIFY OR REMOVE EXISTING STRUCTURE; SIMPLY ADD OR MAKE MINIMAL REVISIONS TO THIS STRUCTURE TO ACCOMMODATE THE PRESENT TASK.
 
 Formatting requirements: 
-1. ONLY output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
-2. Output the text as HTML, not markdown or plaintext. Do NOT wrap the outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]"). 
+1. BEGIN BY REASONING BRIEFLY ABOUT WHERE EACH OF THE LINKS PROVIDED MIGHT BEST FIT INTO THE EXISTING BODY OF THE TEXT GIVEN THE REQUIREMENTS OUTLINED ABOVE.
+2. NEXT, output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
+3. Output the target blog text as HTML, not markdown or plaintext. Do NOT wrap these outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]"). 
 
 YOUR OUTPUTS:
 """
