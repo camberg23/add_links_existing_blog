@@ -16,7 +16,7 @@ SPECIFICALLY: NEVER PILE ON CONTENT OR HYPERLINKS AT THE END OF THE PIECE! THIS 
 
 Accordingly, the ideal case is to find existing text (a word or phrase) where we can simply hyperlink to the relevant sources. It is also acceptable to ignore certain links/sources if it seems like a stretch to try to include them or you can't find a way to include them without adding significant new content.
 
-However, you MUST include at least FOUR NEW LINKED SOURCES! NEVER do fewer than this.
+However, you MUST include at least FIVE NEW LINKED SOURCES! NEVER do fewer than this.
 
 NEVER add hyperlinks to any proper nouns or capitalized words (except for Truity-related proper nouns)!
 
@@ -24,11 +24,11 @@ Do NOT simply add all of the links at the end of the blog. They should be seamle
 
 DO NOT invoke the name of the linked blog, simply add the associated link in key places in the EXISTING text.
 
-CRITICAL: THE INPUT BLOG WILL HAVE EXISTING HTML STRUCTURE. !NEVER! MODIFY OR REMOVE EXISTING STRUCTURE AND NEVER REMOVE, OVERWRITE, OR MODIFY ANY EXISTING LINKS; SIMPLY ADD OR MAKE MINIMAL REVISIONS TO THIS STRUCTURE TO ACCOMMODATE THE PRESENT TASK!
+CRITICAL: THE INPUT BLOG WILL HAVE EXISTING HTML STRUCTURE. NEVER MODIFY OR REMOVE EXISTING STRUCTURE AND NEVER REMOVE, OVERWRITE, OR MODIFY ANY EXISTING LINKS!
 
 Formatting requirements: 
 1. BEGIN BY REASONING BRIEFLY ABOUT WHERE EACH OF THE LINKS PROVIDED MIGHT BEST FIT INTO THE EXISTING BODY OF THE TEXT GIVEN THE REQUIREMENTS OUTLINED ABOVE.
-2. NEXT, output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content.
+2. NEXT, output the enhanced target blog (kept exactly the same wherever possible) with appropriately placed links, no other commentary or content. REMEMBER TO NEVER OVERWRITE OR MODIFY EXISTING LINKS UNDER ANY CIRCUMSTANCES.
 3. Output the target blog text as HTML, not markdown or plaintext. Do NOT wrap these outputs in "```html [XYZ] ```", just give the HTML content (ie, the "[XYZ]"). 
 
 YOUR OUTPUTS:
