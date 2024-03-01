@@ -117,4 +117,4 @@ if submit:
     with st.expander("See the specific changes made"):
         st.components.v1.html(diff_html, height=400, scrolling=True)
 
-    st.download_button(label="Download HTML", data=generated_output, file_name="generated_blog.html", mime="text/html")
+    st.download_button(label="Download HTML", data=blog_content, file_name="generated_blog.html", mime="text/html")
