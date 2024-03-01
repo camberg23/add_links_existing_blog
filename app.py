@@ -65,7 +65,7 @@ st.title('Add in relevant hyperlinks to already written blog')
 
 blog_df = pd.read_pickle('blog_df.pkl')
 
-n = 7
+n = 10
 content_preview_length = 500
 
 user_blog_content = st.text_area("Paste your blog content here:", height=500)
